@@ -1,0 +1,24 @@
+---
+- name: provision platformio ide
+  hosts: all
+  become: true
+  become_method: sudo
+  pre_tasks:
+  - name: Install OS Packages
+    yum:
+      name: '{{ item }}'
+    with_items:
+      - iftop
+      - git
+  - name: get keymap
+    command: localectl
+    register: locale
+    changed_when: False
+  - name: set keymap
+    command: localectl set-keymap ch-de_mac
+    when: "'ch-de_mac' not in locale.stdout"
+
+  roles:
+    -  geerlingguy.docker
+    -  bassinator.mate_desktop
+    -  bassinator.atom
