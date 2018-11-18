@@ -13,11 +13,9 @@ Vagrant.configure("2") do |config|
   #config.vm.provision "file", source: "roles", destination: "/vagrant/roles/"
   config.vm.provision "file", source: "main.yml", destination: "/home/vagrant/main.yml"
   config.vm.provision "file", source: "requirements.yml", destination: "/home/vagrant/requirements.yml"
+  
+  config.vm.provision "shell", inline: "ansible-galaxy install --role-file='/home/vagrant/requirements.yml' --roles-path='/home/vagrant/roles' --force"
 
-  config.vm.provision "ansible_local" do |ansible2|
-    ansible2.verbose = "vvv"
-    ansible2.compatibility_mode = "2.0"
-    ansible2.galaxy_role_file = '/home/vagrant/requirements.yml'
-    ansible2.playbook = "/home/vagrant/main.yml"
-  end
+  config.vm.provision "shell", inline: "ansible-playbook --connection=local --inventory 127.0.0.1, /home/vagrant/main.yml"
+  
 end
