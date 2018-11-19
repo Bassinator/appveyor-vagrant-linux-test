@@ -4,8 +4,8 @@ Vagrant.configure("2") do |config|
     vbox.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     vbox.customize ["modifyvm", :id, "--vram", "64"]
     vbox.memory = 2048
-    vbox.cpus = 2
   end
+
   config.vm.box = "centos/7"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
