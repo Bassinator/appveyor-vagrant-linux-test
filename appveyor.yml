@@ -4,7 +4,9 @@ platform: x64
 
 install:
 #- sh: sudo apt-get -y  install virtualbox
-- sh: sudo apt -y  install vagrant
+- sh: wget https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.deb
+- sh: sudo apt -f vagrant_2.1.1_x86_64.deb
+
 
 build_script:
 - vagrant up
