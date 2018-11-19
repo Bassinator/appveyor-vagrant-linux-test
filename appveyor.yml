@@ -3,8 +3,8 @@ image: ubuntu1804
 platform: x64
 
 install:
-- sh: sudo apt-get -y  install virtualbox
-- sh: sudo apt-get -y  install vagrant
+#- sh: sudo apt-get -y  install virtualbox
+#- sh: sudo apt-get -y  install vagrant
 
 build_script:
 - vagrant up
