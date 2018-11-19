@@ -3,8 +3,8 @@ image: ubuntu1804
 platform: x64
 
 install:
-- sh: sudo apt install virtualbox
-- sh: sudo apt install vagrant
+- sh: sudo apt-get -y  install virtualbox
+- sh: sudo apt-get -y  install vagrant
 
 build_script:
 - vagrant up --provider=virtualbox || ssh vagrant@127.0.0.1 -p 2222 -i .vagrant\machines\default\virtualbox\private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -vvv -C "pwd"
