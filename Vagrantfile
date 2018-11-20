@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
     # Display the VirtualBox GUI when booting the machine
     vb.gui = true
-    vb.cpu = 1
+    vb.cpus = 1
   end
 
   # config.vm.synced_folder ".", "/vagrant", disabled: true
