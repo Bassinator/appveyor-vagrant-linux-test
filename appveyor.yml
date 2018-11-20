@@ -14,8 +14,8 @@ install:
 
 
 build_script:
-- vagrant up
-- vagrant ssh -c "uname -a"
+#- vagrant up
+#- vagrant ssh -c "uname -a"
 
 on_finish:
   - sh: export APPVEYOR_SSH_BLOCK=true
