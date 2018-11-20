@@ -1,8 +1,7 @@
 Vagrant.configure("2") do |config|
 
   # config.vm.box = "centos/7"
-  config.vm.box = "mwrock/Windows2012R2"
-  config.vm.box = "inclusivedesign/windows10-eval"
+  config.vm.box = "jasonc/centos7-32bit"
 
   config.vm.provider "virtualbox" do |vb|
     ### Change network card to PCnet-FAST III
