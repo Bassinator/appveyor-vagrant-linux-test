@@ -11,6 +11,7 @@ install:
 #- sh: sudo apt-get -y  install virtualbox
 - sh: wget https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.deb
 - sh: sudo apt install ./vagrant_2.1.1_x86_64.deb
+- sh: wget https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
 
 
 build_script:
