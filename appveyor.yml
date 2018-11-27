@@ -16,8 +16,8 @@ install:
 
 build_script:
  - VBoxManage import vm1.ova
- - VBoxManage modifyvm --nictype1 Am79C973 vm1
- - VBoxManage modifyvm --cableconnected1 on vm1
+ - VBoxManage modifyvm vm1 --nictype1 Am79C973
+ - VBoxManage modifyvm vm1 --cableconnected1 on
 #-  VBoxManage startvm vm1 --type headless
  - vagrant --version
 #- vagrant up
@@ -25,6 +25,5 @@ build_script:
 
 on_finish:
   - sh: export APPVEYOR_SSH_BLOCK=true
-  - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
 
 test: off
