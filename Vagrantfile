@@ -2,12 +2,13 @@ Vagrant.configure("2") do |config|
 
   # config.vm.box = "centos/7"
   config.vm.box = "jasonc/centos7-32bit"
+  config.vm.network "private_network", type: "dhcp"
 
   config.vm.provider "virtualbox" do |vb|
     vb.cpus = 1
     vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
-    vb.customize ['modifyvm', :id, '--cableconnected1', 'on']
-    vb.customize ["modifyvm", :id, "--hwvirtex", "off"] 
+    vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
+    vb.customize ["modifyvm", :id, "--hwvirtex", "off"]
   end
 
   # config.vm.synced_folder ".", "/vagrant", disabled: true

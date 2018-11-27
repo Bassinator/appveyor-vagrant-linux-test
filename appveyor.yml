@@ -22,7 +22,10 @@ build_script:
 #-  VBoxManage startvm vm1 --type headless
  - sudo apt-get update
  - sudo apt install -y libvirt-bin vagrant-libvirt
+ - sudo apt-get -y install libvirt-dev
  - export VAGRANT_DEFAULT_PROVIDER=libvirt
+ - vagrant plugin install vagrant-libvirt
+ - sudo usermod -a -G  libvirt appveyor
  - vagrant --version
 #- vagrant up || ssh vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -vvv -C "pwd"
 #- vagrant ssh -c "uname -a"
