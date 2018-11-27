@@ -9,16 +9,16 @@ install:
 #- sh: sudo apt-get -y  install virtualbox
 - sh: wget https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.deb
 - sh: sudo apt install ./vagrant_2.1.1_x86_64.deb
-- sh: wget -O vm1.ova https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
+#- sh: wget -O vm1.ova https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
 
 
 build_script:
- - VBoxManage import vm1.ova
- - VBoxManage modifyvm vm1 --nictype1 Am79C973
- - VBoxManage modifyvm vm1 --cableconnected1 on
- - VBoxManage modifyvm vm1 --cableconnected1 on
- - VBoxManage modifyvm vm1 --hwvirtex off
- - VBoxManage modifyvm vm1 --vtxvpid off
+ # - VBoxManage import vm1.ova
+ # - VBoxManage modifyvm vm1 --nictype1 Am79C973
+ # - VBoxManage modifyvm vm1 --cableconnected1 on
+ # - VBoxManage modifyvm vm1 --cableconnected1 on
+ # - VBoxManage modifyvm vm1 --hwvirtex off
+ # - VBoxManage modifyvm vm1 --vtxvpid off
 #-  VBoxManage startvm vm1 --type headless
  - sudo apt-get update
  - sudo apt install -y libvirt-bin vagrant-libvirt
@@ -27,8 +27,8 @@ build_script:
  - vagrant plugin install vagrant-libvirt
  - sudo usermod -a -G  libvirt appveyor
  - vagrant --version
-#- vagrant up || ssh vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -vvv -C "pwd"
-#- vagrant ssh -c "uname -a"
+ - vagrant up || ssh vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -vvv -C "pwd"
+ - vagrant ssh -c "uname -a"
 
 on_finish:
   - sh: export APPVEYOR_SSH_BLOCK=true
