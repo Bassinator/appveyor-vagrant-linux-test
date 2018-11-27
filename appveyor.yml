@@ -20,8 +20,11 @@ build_script:
  - VBoxManage modifyvm vm1 --hwvirtex off
  - VBoxManage modifyvm vm1 --vtxvpid off
 #-  VBoxManage startvm vm1 --type headless
+ - sudo apt-get update
+ - apt install -y libvirt-bin vagrant-libvirt
+ - export VAGRANT_DEFAULT_PROVIDER=libvirt
  - vagrant --version
-#- vagrant up
+#- vagrant up || ssh vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -vvv -C "pwd"
 #- vagrant ssh -c "uname -a"
 
 on_finish:
