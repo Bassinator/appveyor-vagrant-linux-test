@@ -16,7 +16,7 @@ install:
 
 build_script:
  - VBoxManage import vm1.ova
- - VBoxManage modifyvm --nictype 1 Am79C973
+ - VBoxManage modifyvm --nictype1 Am79C973
  - VBoxManage modifyvm --cableconnected1 on
 #-  VBoxManage startvm vm1 --type headless
  - vagrant --version
