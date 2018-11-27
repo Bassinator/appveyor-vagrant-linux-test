@@ -17,8 +17,8 @@ build_script:
  - VBoxManage modifyvm vm1 --nictype1 Am79C973
  - VBoxManage modifyvm vm1 --cableconnected1 on
  - VBoxManage modifyvm vm1 --cableconnected1 on
- - VBoxManage modifyvm vm1 –hwvirtex off
- - VBoxManage modifyvm vm1 –vtxvpid off
+ - VBoxManage modifyvm vm1 --hwvirtex off
+ - VBoxManage modifyvm vm1 --vtxvpid off
 #-  VBoxManage startvm vm1 --type headless
  - vagrant --version
 #- vagrant up
