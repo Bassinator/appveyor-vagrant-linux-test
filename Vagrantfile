@@ -4,10 +4,9 @@ Vagrant.configure("2") do |config|
   config.vm.box = "jasonc/centos7-32bit"
 
   config.vm.provider "virtualbox" do |vb|
-    ### Change network card to PCnet-FAST III
-    # For NAT adapter
-    #vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
     vb.cpus = 1
+    vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
+    vb.customize ['modifyvm', :id, '--cableconnected1', 'on']
   end
 
   # config.vm.synced_folder ".", "/vagrant", disabled: true
