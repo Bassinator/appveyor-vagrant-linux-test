@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
     vb.cpus = 1
     vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
     vb.customize ['modifyvm', :id, '--cableconnected1', 'on']
+    vb.customize ["modifyvm", :id, "--hwvirtex", "off"] 
   end
 
   # config.vm.synced_folder ".", "/vagrant", disabled: true
