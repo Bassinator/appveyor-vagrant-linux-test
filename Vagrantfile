@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
     vb.customize ["modifyvm", :id, "--hwvirtex", "off"]
     vb.customize ["controlvm", :id, "vrde", "on"]
-#    vb.customize ["controlvm", :id, "vrdeport", "5002-5020"]
+    vb.customize ["controlvm", :id, "vrdeport", "3389"]
   end
 
   # config.vm.synced_folder ".", "/vagrant", disabled: true
