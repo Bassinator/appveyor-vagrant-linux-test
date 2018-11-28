@@ -9,8 +9,8 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
     vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
     vb.customize ["modifyvm", :id, "--hwvirtex", "off"]
-    vb.customize ["modifyvm", :id, "vrde", "on"]
-    vb.customize ["modifyvm", :id, "vrdeport", "3389"]
+    vb.customize ["modifyvm", :id, "--vrde", "on"]
+    vb.customize ["modifyvm", :id, "--vrdeport", "3389"]
   end
 
   # config.vm.synced_folder ".", "/vagrant", disabled: true
