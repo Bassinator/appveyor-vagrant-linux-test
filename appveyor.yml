@@ -8,10 +8,9 @@ environment:
   APPVEYOR_SSH_KEY: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDO02mEvWr79WvrsWJf1BMBRmODC7oGvS0oyeyl/FlZINRHXubV3vCiUrmgO5lKro64TiqMpYdN+A3D57Z9jaKx14ezuSGimATRyuIgN4VOU8lMFLuqRmczgovbjJkhvQes0uIv7z5NW1pevMrA27+fA7Nyc9Ok+lcjKXJvptSoZwm3xCblUAYehCvCuMQ2RuUAwJy+erdHXQy7wf6eWd20/gEwnc7a5US9TVsCtqKP10x0e1yv+6JWwWrna8X18X8PGj7algLwi/yEKZuWMwn/hFnS/9ijn+4mJO+LjYprsXF2zFCngZ/QVVqmRih5ziX0H2IEiiq/7ls6TxqTaiEwBNgTORfVApxX4gyjQly4ZKxq85I12xnPbNiG/2odfVS7/Xdh8lTSruaMW9PxeLQn+Nmi3hT5eKhPwJ1ZFcd4QMMY/KjfzKTalnO8gZMXVuaMjNYUJS9cC131XI2XqHVPjYNsANcxgfJFW+31qWdaxd4BH+uJD+t6RtRR9qMd5uGkJCh+zyxBy4QlG8hPZOTYnqs607JJ8/lCaEcvR+vrKMimKeIxjEQ9I7rqVjFZK2cHbXg0N32xLVTgy1fHn6ALjFXJjiaNQBCy9GPtWM0izTZf5iO1zHUY4hjPiBLRX7F2R50cSh7ajiR4yzQ3N4YQRZ4+aMbnrEQz5QVx3tRFaw=="
 
 install:
-#- sh: sudo apt-get -y  install virtualbox
 - sh: wget https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.deb
 - sh: sudo apt install ./vagrant_2.1.1_x86_64.deb
-#- sh: wget -O vm1.ova https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
+- sh: wget -O vm1.ova https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
 
 
 build_script:
