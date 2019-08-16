@@ -1,5 +1,5 @@
 version: '{build}-{branch}'
-image: ubuntu1804
+image: ubuntu
 platform: x64
 
 environment:
