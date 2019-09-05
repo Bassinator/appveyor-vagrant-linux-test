@@ -8,12 +8,21 @@ environment:
   APPVEYOR_SSH_KEY: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC9DTxK159HZ1SjC4il46EH2ff4sw5lxH24/LCDQrykhqI6bXSCjsV0GMGDoy+UZh1SIPeqThsl1hgkr5Ylg7Bk28o26wWxkrEsN1Cc8IzQBAAz8aP+xfNiUQkdoPkhlz6+xXfc8RHZYefwer19aMrlhNY8IuXSKxFXAwCVsXdAV92dheAhralTEFO6KFq8qgrdIjHuW7iorCvQrswkSSVVXw2ONjDiwYDzvOq32NGm1qVTQmps1FcFaF7KjguKj6oXMrExZzV9iX2MiRz4pHIWFtlNpbL3bpIqiI9C1hTXbjYq2Jp0PL73iXhYgzzaAIPeUgleJpXohEl3V3cOrlhcTWJKzJGQ+FLePLp1iwco9xnE512G22F/Gv2ts8oMr4GlcN77MPVeve5t024luBnuGMrZgf2TFqu66nOedZr3cXKNTQSNS5u6bL62axsLc24286K69/lnpnqLCx+XBp0meWsP+ACKzm6ymPxsP8mLDZw0qQwxOmbtHEos5frVMpuQFBkEdDPJ6JqtW6UhS3YHe98ZtN5+pKfyqcPHt2dZTKf5g2nxw0MiXaARgehyzLxixC+OTqqwqRc1hNlKufRARbwArYqSZ1cV+zGMPvrwgKAgiZUt3Z6hYXmJUQtAhrsYw2vzPuZAibZ6djauFASQVXmeeELGQnMMV2wN/te79w=="
 
 install:
-- sh: sudo apt-get -y install virtualbox
 - sh: wget https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.deb
 - sh: sudo apt install ./vagrant_2.1.1_x86_64.deb
+- sh: wget -O vm1.ova https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
 
 
 build_script:
+  - VBoxManage import vm1.ova
+  - VBoxManage modifyvm vm1 --nictype1 Am79C973
+  - VBoxManage modifyvm vm1 --cableconnected1 on
+  - VBoxManage modifyvm vm1 --cableconnected1 on
+  - VBoxManage modifyvm vm1 --hwvirtex off
+  - VBoxManage modifyvm vm1 --vtxvpid off
+  - VBoxManage modifyvm vm1 --vrde on
+#-  VBoxManage startvm vm1 --type headless
+ - sudo apt-get update
   - vagrant --version
   - vagrant up || ssh vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -vvv -C "pwd"
   - vagrant ssh -c "uname -a"
