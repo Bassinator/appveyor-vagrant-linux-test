@@ -9,7 +9,7 @@ environment:
 
 install:
 - sh: wget https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
-- sh: sudo apt install ./vagrant_2.1.1_x86_64.deb
+- sh: sudo apt install ./vagrant_2.3.5_x86_64.deb
 - sh: wget -O vm1.ova https://netcologne.dl.sourceforge.net/project/debian32bitvbox/OVA-image/vm1%5B32bit%5D.ova
 
 
